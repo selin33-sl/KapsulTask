@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {colors} from '../../theme';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -7,7 +8,7 @@ export default StyleSheet.create({
     width: windowWidth * 0.9,
     height: windowHeight * 0.5,
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 1)',
+    backgroundColor: colors.white,
     marginBottom: windowHeight * 0.02,
     borderRadius: 22,
     elevation: 2,
@@ -27,7 +28,7 @@ export default StyleSheet.create({
   cardNameC: {
     width: windowWidth * 0.3,
     height: windowHeight * 0.03,
-    backgroundColor: 'rgba(127, 86, 217, 1)',
+    backgroundColor: colors.purpleL,
     borderTopRightRadius: 3.44,
     borderBottomRightRadius: 3.44,
     position: 'absolute',
@@ -38,7 +39,7 @@ export default StyleSheet.create({
   cardNameText: {
     fontSize: windowHeight * 0.02,
     fontWeight: '700',
-    color: 'rgba(255, 255, 255, 1)',
+    color: colors.white,
   },
   underContainer: {
     flexDirection: 'row',
@@ -63,13 +64,13 @@ export default StyleSheet.create({
   },
   trainingNameT: {
     fontSize: windowHeight * 0.024,
-    color: 'rgba(6, 36, 27, 1)',
+    color: colors.greenD,
     fontWeight: '700',
     width: windowWidth * 0.8,
     marginVertical: windowHeight * 0.025,
   },
   divider: {
-    backgroundColor: 'rgba(218, 218, 247, 1)',
+    backgroundColor: colors.offWhite,
     width: windowWidth * 0.8,
     height: 0.7,
     marginTop: windowHeight * 0.03,
@@ -88,12 +89,12 @@ export default StyleSheet.create({
     marginRight: windowWidth * 0.02,
   },
   name: {
-    color: 'rgba(31, 31, 57, 1)',
+    color: colors.dark,
     fontWeight: '600',
     fontSize: windowHeight * 0.02,
   },
   title: {
-    color: 'rgba(126, 126, 170, 1)',
+    color: colors.purpleG,
     fontWeight: '400',
     fontSize: windowHeight * 0.018,
   },
@@ -105,7 +106,7 @@ export default StyleSheet.create({
   button: {
     width: windowWidth * 0.35,
     height: windowHeight * 0.035,
-    backgroundColor: 'rgba(132, 89, 235, 1)',
+    backgroundColor: colors.purple,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
@@ -113,6 +114,6 @@ export default StyleSheet.create({
   buttonText: {
     fontSize: windowHeight * 0.02,
     fontWeight: '500',
-    color: 'rgba(255, 255, 255, 1)',
+    color: colors.white,
   },
 });

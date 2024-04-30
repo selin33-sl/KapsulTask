@@ -10,9 +10,11 @@ export const Button = ({
   borderColor,
   icon,
   textDecorationLine,
+  onPress,
 }) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={{
         ...style.container,
         backgroundColor: backgroundColor,

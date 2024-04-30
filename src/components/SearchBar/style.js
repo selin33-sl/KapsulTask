@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {colors} from '../../theme';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -18,8 +19,8 @@ export default StyleSheet.create({
     borderRadius: 8,
     paddingLeft: windowWidth * 0.03,
     fontSize: windowHeight * 0.02,
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    color: 'rgba(168, 168, 168, 1)',
+    backgroundColor: colors.white,
+    color: colors.grey,
   },
 
   clearIcon: {

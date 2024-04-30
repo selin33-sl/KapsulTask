@@ -17,11 +17,15 @@ import BottomIcon2 from '../../assets/images/bottomIcon2';
 import BottomIcon3 from '../../assets/images/bottomIcon3';
 import BottomIcon4 from '../../assets/images/bottomIcon4';
 import {HomeListCard} from '../../components/HomeListCard';
+import {useNavigation} from '@react-navigation/native';
+import {colors} from '../../theme';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export const HomeScreen = () => {
+  const navigation = useNavigation();
+
   const data = [
     {
       videoNumber: '38',
@@ -75,14 +79,14 @@ export const HomeScreen = () => {
     <LinearGradient
       start={{x: 1, y: 0}}
       end={{x: 0, y: 0}}
-      colors={['rgba(136, 99, 218, 1)', 'rgba(179, 154, 239, 1)']}
+      colors={[colors.purpleD, colors.purpleExL]}
       style={style.container}>
       <StatusBar
         translucent
         backgroundColor="transparent"
         barStyle="light-content"
       />
-      <ScrollView style={{flex: 1}}>
+      <ScrollView style={{flex: 1}} sh={false}>
         <Header />
         <Text style={style.firstText}>HER ZAMAN, HER YERDE EĞİTİM</Text>
         <Text style={style.secondText}>
@@ -91,15 +95,17 @@ export const HomeScreen = () => {
         <SearchBar />
         <View style={style.buttonContainer}>
           <Button
-            backgroundColor={'rgba(255, 105, 5, 1)'}
+            onPress={() => navigation.navigate('onlineTutorials-screen')}
+            backgroundColor={colors.orange}
             text={'Çevrimiçi Eğitimler'}
-            textColor={'rgba(255, 255, 255, 1)'}
+            textColor={colors.white}
             borderColor={'transparent'}
           />
           <Button
-            backgroundColor={'rgba(127, 86, 217, 1)'}
+            onPress={() => navigation.navigate('videoTutorials-screen')}
+            backgroundColor={colors.purpleL}
             text={'Video Eğitimler'}
-            textColor={'rgba(255, 255, 255, 1)'}
+            textColor={colors.white}
             borderColor={'transparent'}
           />
         </View>
@@ -116,12 +122,12 @@ export const HomeScreen = () => {
               <Text
                 style={{
                   ...style.bottomText,
-                  color: 'rgba(127, 86, 217, 1)',
+                  color: colors.purpleL,
                   paddingLeft: windowWidth * 0.04,
                 }}>
                 En Popüler
               </Text>
-              <Text style={{...style.bottomText, color: 'rgba(6, 36, 27, 1)'}}>
+              <Text style={{...style.bottomText, color: colors.greenD}}>
                 {' '}
                 Eğitimlerimiz
               </Text>
@@ -133,10 +139,11 @@ export const HomeScreen = () => {
 
             <View style={style.bottomButtonC}>
               <Button
-                backgroundColor={'rgba(235, 235, 245, 1)'}
+                onPress={() => navigation.navigate('onlineTutorials-screen')}
+                backgroundColor={colors.white}
                 text={'Eğitimleri Keşfedin'}
-                textColor={'rgba(127, 86, 217, 1)'}
-                borderColor={'rgba(127, 86, 217, 1)'}
+                textColor={colors.purpleL}
+                borderColor={colors.purpleL}
                 icon
                 textDecorationLine={'underline'}
               />
