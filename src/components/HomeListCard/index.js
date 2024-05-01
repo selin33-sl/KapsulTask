@@ -36,7 +36,7 @@ export const HomeListCard = ({videoNumber, trainingName, name, title}) => {
           />
           <View>
             <Text style={style.name}>{name}</Text>
-            <Text style={style.title}>{title}</Text>
+            <Text style={style.title}>Bilgisayar Öğretmeni</Text>
           </View>
         </View>
         <TouchableOpacity style={style.button}>

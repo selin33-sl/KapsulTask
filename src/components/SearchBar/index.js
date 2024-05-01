@@ -1,15 +1,10 @@
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native';
+import {View, TextInput, TouchableOpacity} from 'react-native';
 import React from 'react';
 import style from './style';
 import SearchIcon from '../../assets/images/searchIcon';
+import Close from '../../assets/images/close';
 
-export const SearchBar = ({value, onClear, onChangeText}) => {
+export const SearchBar = ({value, onClear, onChangeText, keyboard}) => {
   return (
     <View style={style.container}>
       <View style={style.innerContainer}>
@@ -17,17 +12,15 @@ export const SearchBar = ({value, onClear, onChangeText}) => {
           value={value}
           onChangeText={onChangeText}
           style={style.searchBar}
-          placeholder={'Bir kurs ara...'}
+          placeholder={keyboard ? '' : 'Bir kurs ara...'}
           placeholderTextColor={'grey'}
+          autoFocus={keyboard}
         />
-        <TouchableOpacity style={style.clearIcon} onPress={onClear}>
-          <SearchIcon />
+        <TouchableOpacity
+          style={style.clearIcon}
+          onPress={keyboard ? onClear : null}>
+          {keyboard ? <Close /> : <SearchIcon />}
         </TouchableOpacity>
-        {value ? (
-          <TouchableOpacity onPress={onClear}>
-            <SearchIcon />
-          </TouchableOpacity>
-        ) : null}
       </View>
     </View>
   );

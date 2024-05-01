@@ -7,6 +7,14 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
+  searchContainer: {
+    position: 'absolute',
+    width: windowWidth,
+    height: windowHeight,
+    zIndex: 3,
+    flex: 1,
+    alignItems: 'center',
+  },
   firstText: {
     fontSize: windowHeight * 0.022,
     fontWeight: '700',
@@ -76,7 +84,16 @@ export default StyleSheet.create({
     marginBottom: windowHeight * 0.05,
   },
   listC: {
-    backgroundColor: colors.bgGrey,
+    width: windowWidth * 0.82,
+
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    marginTop: 5,
+  },
+  indicatorC: {
+    padding: 10,
+    justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
   },
 });
