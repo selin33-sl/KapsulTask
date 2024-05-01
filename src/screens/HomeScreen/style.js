@@ -28,6 +28,7 @@ export default StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     marginTop: windowHeight * 0.03,
+    paddingHorizontal: windowWidth * 0.05,
   },
   buttonContainer: {
     width: windowWidth,

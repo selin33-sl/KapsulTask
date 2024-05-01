@@ -5,7 +5,13 @@ import {images} from '../../assets';
 import PlayIcon from '../../assets/images/playIcon';
 import Stars from '../../assets/images/stars';
 
-export const HomeListCard = ({videoNumber, trainingName, name, title}) => {
+export const HomeListCard = ({videoNumber, trainingName, name}) => {
+  const renderTrainingName = () => {
+    if (trainingName.length > 28) {
+      return trainingName.substring(0, 28) + '..';
+    }
+    return trainingName;
+  };
   return (
     <View style={style.container}>
       <View style={style.backImgC}>
@@ -25,7 +31,7 @@ export const HomeListCard = ({videoNumber, trainingName, name, title}) => {
         </View>
         <Stars />
       </View>
-      <Text style={style.trainingNameT}>{trainingName}</Text>
+      <Text style={style.trainingNameT}>{renderTrainingName()}</Text>
       <View style={style.divider}></View>
       <View style={style.instructorC}>
         <View style={style.profileC}>

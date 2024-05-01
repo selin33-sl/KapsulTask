@@ -104,7 +104,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    width: windowWidth * 0.35,
+    width: windowWidth * 0.3,
     height: windowHeight * 0.035,
     backgroundColor: colors.purple,
     justifyContent: 'center',
@@ -112,7 +112,7 @@ export default StyleSheet.create({
     borderRadius: 20,
   },
   buttonText: {
-    fontSize: windowHeight * 0.02,
+    fontSize: windowHeight * 0.018,
     fontWeight: '500',
     color: colors.white,
   },

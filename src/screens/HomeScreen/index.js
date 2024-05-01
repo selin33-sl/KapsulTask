@@ -39,11 +39,9 @@ export const HomeScreen = () => {
   const {data: AllCoursesData, isLoading: AllCoursesLoading} = useSelector(
     state => state.getAllCourses,
   );
-  const {data: SearchCoursesData, isLoading: SearchCoursesLoading} =
-    useSelector(state => state.getSearchCourses);
-
-  console.log('aaaaaaa', SearchCoursesData?.items);
-  console.log('paggee', page);
+  const {data: SearchCoursesData} = useSelector(
+    state => state.getSearchCourses,
+  );
 
   const renderItem = ({item}) => {
     return searchTerm ? (
@@ -59,8 +57,6 @@ export const HomeScreen = () => {
 
   const handleLoadMore = () => {
     if (page < 3) {
-      console.log('tetiklendii');
-
       setPage(page + 1);
     }
   };
@@ -123,46 +119,39 @@ export const HomeScreen = () => {
     );
   };
 
-  console.log('keyboardStatus', keyboardStatus);
-  return (
-    <LinearGradient
-      start={{x: 1, y: 0}}
-      end={{x: 0, y: 0}}
-      colors={[colors.purpleD, colors.purpleExL]}
-      style={style.container}>
-      <StatusBar
-        translucent
-        backgroundColor="transparent"
-        barStyle="light-content"
-      />
-      {keyboardStatus ? (
-        <LinearGradient
-          start={{x: 1, y: 0}}
-          end={{x: 0, y: 0}}
-          colors={[colors.purpleD, colors.purpleExL]}
-          style={style.searchContainer}>
-          <Header />
-          <SearchBar
-            value={searchTerm}
-            onClear={onClear}
-            onChangeText={setSearchTerm}
-            keyboard={keyboardStatus}
+  const renderSearchContainer = () => {
+    return (
+      <LinearGradient
+        start={{x: 1, y: 0}}
+        end={{x: 0, y: 0}}
+        colors={[colors.purpleD, colors.purpleExL]}
+        style={style.searchContainer}>
+        <Header />
+        <SearchBar
+          value={searchTerm}
+          onClear={onClear}
+          onChangeText={setSearchTerm}
+          keyboard={keyboardStatus}
+        />
+        <View
+          style={{
+            ...style.listC,
+            height: SearchCoursesData?.items
+              ? windowHeight * 0.055 * SearchCoursesData?.items?.length
+              : 0,
+          }}>
+          <List
+            data={SearchCoursesData?.items}
+            backgroundColor={'transparent'}
+            renderItem={renderItem}
           />
-          <View
-            style={{
-              ...style.listC,
-              height: SearchCoursesData?.items
-                ? windowHeight * 0.055 * SearchCoursesData?.items?.length
-                : 0,
-            }}>
-            <List
-              data={SearchCoursesData?.items}
-              backgroundColor={'transparent'}
-              renderItem={renderItem}
-            />
-          </View>
-        </LinearGradient>
-      ) : null}
+        </View>
+      </LinearGradient>
+    );
+  };
+
+  const renderContent = () => {
+    return (
       <ScrollView
         style={{flex: 1}}
         showsVerticalScrollIndicator={false}
@@ -230,7 +219,7 @@ export const HomeScreen = () => {
 
             <View style={style.bottomButtonC}>
               <Button
-                onPress={() => navigation.navigate('onlineTutorials-screen')}
+                onPress={() => navigation.navigate('discoverTutorials-screen')}
                 backgroundColor={colors.white}
                 text={'Eğitimleri Keşfedin'}
                 textColor={colors.purpleL}
@@ -248,6 +237,22 @@ export const HomeScreen = () => {
           </View>
         </View>
       </ScrollView>
+    );
+  };
+
+  return (
+    <LinearGradient
+      start={{x: 1, y: 0}}
+      end={{x: 0, y: 0}}
+      colors={[colors.purpleD, colors.purpleExL]}
+      style={style.container}>
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="light-content"
+      />
+      {keyboardStatus ? renderSearchContainer() : null}
+      {renderContent()}
     </LinearGradient>
   );
 };
